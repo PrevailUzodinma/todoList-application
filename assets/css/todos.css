@@ -68,3 +68,7 @@ input:focus {
   border: 1px solid #3c1053;
   outline: none;
 }
+
+.fa-plus{
+    float: right;
+}
