@@ -5,7 +5,7 @@ let plusIcon = document.querySelector(".fa-plus");
 // function to make my listener activated on newly written todos from the input tag
 function attachListeners() {
   let lis = document.querySelectorAll("li");
-  let spans = document.querySelectorAll("span");
+  let removeLis = document.querySelectorAll("span.delete");
   // Check off specific todos by clicking
   for (i = 0; i < lis.length; i++) {
     lis[i].addEventListener("click", function () {
@@ -13,8 +13,8 @@ function attachListeners() {
     });
   }
 
-  for (i = 0; i < spans.length; i++) {
-    spans[i].addEventListener("click", function (event) {
+  for (i = 0; i < removeLis.length; i++) {
+    removeLis[i].addEventListener("click", function (event) {
       // target the li closest/parent to the clicked span
       let parentLi = event.target.closest("li");
       if (parentLi) {
@@ -39,11 +39,15 @@ input.addEventListener("keypress", function (event) {
 
     // Set the text content of the li element
     newLi.innerHTML =
-      "<span>" +
+      '<span class="delete">' +
       '<i class="fa-regular fa-trash-can"></i>' +
       "</span>" +
       " " +
-      todoText;
+      todoText +
+      " " +
+      "<span>" +
+      '<i class="fa-regular fa-pen-to-square"></i>' +
+      "</span>";
 
     // Append the new li element to the ul
     ul.appendChild(newLi);
@@ -103,3 +107,43 @@ plusIcon.addEventListener("click", function () {
     });
   }
 });
+
+/* Adding functionality to my edit icon: I am using the UL container instead of a Nodelist of icons,
+because after one edit, my icon stops functioning, using UL (Event delegation) will make this functionality happen dynamically
+PS: I can do the same for my delete Icon, but I will leave it like that for future reference of diverse functionalities */
+
+ul.addEventListener("click", function (event) {
+  let editIcon = event.target.closest(".fa-pen-to-square");
+  event.stopPropagation();
+  if (editIcon) {
+    let parentLi = editIcon.closest("li");
+    if (parentLi) {
+      // remove the li, that has the clicked span
+      let editText = prompt("Edit your text here:");
+
+      if (editText !== null) {
+        parentLi.innerHTML =
+          '<span class="delete">' +
+          '<i class="fa-regular fa-trash-can"></i>' +
+          "</span>" +
+          " " +
+          editText +
+          " " +
+          "<span>" +
+          '<i class="fa-regular fa-pen-to-square"></i>' +
+          "</span>";
+      }
+      parentLi.classList.toggle("done");
+    }
+  }
+});
+
+/* ul.addEventListener("click",function(event){
+    let deleteIcon = event.target.closest(".fa-trash-can");
+    if(deleteIcon){
+        let parentLi = deleteIcon.closest("li");
+        if (parentLi) {
+            parentLi.remove();
+        }
+    }
+}) */

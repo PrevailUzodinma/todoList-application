@@ -54,7 +54,8 @@ li:nth-child(2n) {
   background-color: #f7f7f7;
 }
 
-span{
+
+span.delete{
     background-color: #e74c3c;
     height: 40px;
     margin-right: 20px;
@@ -66,7 +67,7 @@ span{
     opacity: 0;
 }
 
-li:hover span{
+li:hover .delete{
     width: 40px;
     opacity: 1.0;
 }
@@ -89,4 +90,11 @@ input:focus {
 
 .fa-plus{
     float: right;
+}
+
+.fa-pen-to-square{
+    float: right;
+    padding-top: 10px;
+    margin-right: 20px;
+    text-align: center;
 }
