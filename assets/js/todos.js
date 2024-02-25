@@ -136,14 +136,7 @@ ul.addEventListener("click", function (event) {
       parentLi.classList.toggle("done");
     }
   }
+  /*attach the listeners, so that after you edit a todo, the delete icon will still work.
+  PS: If i used event delegation, I presume, I would not have to do this*/
+  attachListeners();
 });
-
-/* ul.addEventListener("click",function(event){
-    let deleteIcon = event.target.closest(".fa-trash-can");
-    if(deleteIcon){
-        let parentLi = deleteIcon.closest("li");
-        if (parentLi) {
-            parentLi.remove();
-        }
-    }
-}) */
