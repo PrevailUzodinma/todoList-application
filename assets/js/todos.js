@@ -133,7 +133,7 @@ ul.addEventListener("click", function (event) {
           '<i class="fa-regular fa-pen-to-square"></i>' +
           "</span>";
       }
-      parentLi.classList.add("editClass");
+      parentLi.classList.add("noStrikes");
     }
   }
   /*attach the listeners, so that after you edit a todo, the delete icon will still work.
