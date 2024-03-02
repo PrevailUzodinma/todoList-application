@@ -138,5 +138,8 @@ ul.addEventListener("click", function (event) {
   }
   /*attach the listeners, so that after you edit a todo, the delete icon will still work.
   PS: If i used event delegation, I presume, I would not have to do this*/
-  attachListeners();
+  //attachListeners();
+
+  /* PS: i JUST FOUND OUT THAT calling attachlisteners(); made it that I had to doubleclick to toggle, it actually worked without it, cos I targetted UL then worked down to LI,
+lesson learned but I'm leaving it here for future me*/
 });
