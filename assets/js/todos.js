@@ -141,5 +141,5 @@ ul.addEventListener("click", function (event) {
   //attachListeners();
 
   /* PS: i JUST FOUND OUT THAT calling attachlisteners(); made it that I had to doubleclick to toggle, it actually worked without it, cos I targetted UL then worked down to LI,
-lesson learned but I'm leaving it here for future me*/
+lesson learned but I'm leaving it here for future me,yes*/
 });
